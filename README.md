@@ -50,24 +50,6 @@ A fully responsive educational platform with dark mode, AI chatbot, enrollment s
 | JavaScript (Vanilla) | Interactivity |
 | SweetAlert2 | Beautiful popup alerts |
 | html2canvas | ID Card PNG download |
-| Font Awesome 6 | Icons |
-
----
-
-## 📂 Project Structure
-EduFuture-Academy/
-│
-├── index.html
-├── css/
-│ ├── base.css # Global reset, typography, variables
-│ ├── layout.css # Page structure, header, footer, sections
-│ ├── components.css # Cards, buttons, modals, forms, certificate, ID card
-│ ├── responsive.css # Media queries for all screen sizes
-│ └── unique-features.css # Loader, dark mode, chatbot, animations, cursor
-├── js/
-│ ├── main.js # Hamburger menu only
-│ └── unique-features.js # Dark mode, chatbot, enrollment, modals, download
-└── README.md
 
 ---
 
