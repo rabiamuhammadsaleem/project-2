@@ -1,0 +1,464 @@
+﻿/* RESPONSIVE.CSS - COMPLETE RESPONSIVE STYLES FOR ALL SCREEN SIZES */
+
+/* 1. BASE TABLET & DESKTOP - MIN WIDTH 640px */
+
+/* Adds horizontal padding to container on larger screens */
+@media (min-width: 640px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* 2. EXTRA LARGE DESKTOP - MIN WIDTH 1600px */
+
+/* For very large screens - increases max-width and hero content */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+    .hero-content {
+        max-width: 1000px;
+    }
+}
+
+
+/* 3. LARGE DESKTOP - MIN WIDTH 1440px */
+
+/* Desktop optimization for large screens */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    .hero-content {
+        max-width: 900px;
+    }
+    .courses-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* 4. DESKTOP NAVIGATION - MIN WIDTH 1024px */
+
+/* Desktop styles - hamburger hidden, horizontal navigation */
+@media (min-width: 1024px) {
+    /* Hide hamburger menu on desktop */
+    .hamburger {
+        display: none;
+    }
+    
+    /* Ensure main navigation is visible */
+    .main-nav {
+        display: block !important;
+    }
+    
+    /* Features grid - horizontal flex layout */
+    .features-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 1.5rem;
+    }
+    .features-grid > * {
+        flex: 1;
+    }
+    
+    /* Courses grid - 4 columns */
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Instructors grid - 3 columns */
+    .instructors-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+
+/* 5. MOBILE & TABLET NAVIGATION - MAX WIDTH 1023px */
+
+/* Mobile/tablet styles - hamburger visible, vertical navigation */
+@media (max-width: 1023px) {
+    /* Hamburger Menu Button Styles */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    /* Hamburger Lines */
+    .hamburger span {
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(135deg, #0B2447, #D4AF37);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    /* Dark mode hamburger line color */
+    body.dark-mode .hamburger span {
+        background: #D4AF37;
+    }
+    
+    /* Hamburger Active State - Transforms to X */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+    
+    /* Mobile Navigation Menu - Hidden by Default */
+    .main-nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #FFFFFF;
+        box-shadow: 0 20px 40px rgba(11, 36, 71, 0.12);
+        padding: 1rem;
+        border-radius: 1rem;
+        z-index: 1000;
+    }
+    
+    /* Dark mode mobile navigation */
+    body.dark-mode .main-nav {
+        background: #0F203A;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Show menu when open class is added */
+    .main-nav.open {
+        display: block;
+    }
+    
+    /* Mobile Navigation Links - Vertical Layout */
+    .main-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .main-nav ul li a {
+        display: block;
+        text-align: center;
+        padding: 0.75rem;
+    }
+    
+    /* Mobile Grid Adjustments */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .instructors-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+
+/* 6. TABLET DEVICES - MAX WIDTH 768px */
+
+/* Tablet-specific responsive adjustments */
+@media (max-width: 768px) {
+    /* Hero Section Adjustments */
+    .hero {
+        padding: 2rem 0;
+        min-height: auto;
+    }
+    .hero-content {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    /* Hero Buttons - Vertical Stack */
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Hero Stats - Vertical Stack */
+    .hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    /* Cards - Full Width */
+    .feature-card,
+    .course-card,
+    .instructor-card {
+        min-width: 100%;
+    }
+    
+    /* Footer - Vertical Layout */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    /* Certificate Panel - Vertical Buttons */
+    .certificate-panel-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .certificate-panel-actions .btn {
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+    
+    /* Certificate & ID Card Padding */
+    .certificate-full,
+    .id-card-full {
+        padding: 1rem;
+    }
+    
+    /* Modal - Full Width on Tablet */
+    .modal-content {
+        width: calc(100% - 1.5rem);
+        margin: 0 0.75rem;
+    }
+    
+    /* Live Clock - Slightly Smaller */
+    .live-clock {
+        transform: scale(0.95);
+        margin: 1rem auto;
+    }
+    
+    /* Hide Custom Cursor on Touch Devices */
+    .custom-cursor,
+    .custom-cursor-dot {
+        display: none;
+    }
+    
+    /* Chatbot Widget - Adjusted Position */
+    .chatbot-widget {
+        transform: scale(0.9);
+        right: 5px;
+        bottom: 10px;
+    }
+    .chatbot-box {
+        width: 300px;
+        right: 0;
+        bottom: 70px;
+    }
+    
+    /* Schedule Table - Smaller Padding */
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    /* Typography Adjustments */
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    /* Grids - Single Column */
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    .instructors-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* 7. MOBILE DEVICES - MAX WIDTH 480px */
+
+/* Mobile-specific responsive adjustments */
+@media (max-width: 480px) {
+    /* Container Padding */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    /* Hero Typography */
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    .hero-badge {
+        font-size: 0.7rem;
+    }
+    
+    /* Section Title */
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    /* Course Card Padding */
+    .course-card {
+        padding: 1.25rem;
+    }
+    
+    /* Modal - Full Width on Mobile */
+    .modal-content {
+        width: calc(100% - 1rem);
+    }
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    /* Live Clock - Smaller */
+    .live-clock {
+        transform: scale(0.9);
+    }
+    
+    /* Chatbot Widget - Smaller */
+    .chatbot-widget {
+        transform: scale(0.85);
+        right: 0;
+        bottom: 5px;
+    }
+    .chatbot-toggle {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    /* Dark Mode & Back to Top Buttons */
+    .dark-mode-toggle,
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        right: 10px;
+    }
+    .dark-mode-toggle {
+        bottom: 80px;
+    }
+    .back-to-top {
+        bottom: 25px;
+    }
+    
+    /* Certificate Typography */
+    .certificate-title-full {
+        font-size: 1rem;
+    }
+    .certificate-student-name-full {
+        font-size: 1.2rem;
+    }
+    
+    /* Stats Number */
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* 8. SMALL LANDSCAPE MODE */
+
+/* Adjustments for landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 1.5rem 0;
+    }
+    .hero-content {
+        padding: 1rem;
+    }
+    
+    /* Reduce gap between grid items */
+    .features-grid,
+    .courses-grid,
+    .instructors-grid {
+        gap: 0.75rem;
+    }
+    
+    /* Limit chatbot height in landscape */
+    .chatbot-box {
+        max-height: 250px;
+    }
+    .chatbot-messages {
+        max-height: 150px;
+    }
+}
+
+
+/* 9. TOUCH DEVICES - LARGER TAP TARGETS */
+
+/* Ensures buttons are easily tappable on touch screens */
+@media (hover: none) and (pointer: coarse) {
+    button,
+    .btn,
+    .btn-course,
+    .btn-nav,
+    .hamburger,
+    .modal-close,
+    .chatbot-toggle,
+    .chatbot-suggestions button {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* Disable hover transforms on touch devices */
+    .feature-card:hover,
+    .course-card:hover,
+    .instructor-card:hover {
+        transform: none;
+    }
+    
+    /* Improve touch interaction */
+    a,
+    button,
+    [role="button"] {
+        cursor: pointer;
+        touch-action: manipulation;
+    }
+}
+
+/* 10. REDUCED MOTION PREFERENCE */
+
+/* Respects user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

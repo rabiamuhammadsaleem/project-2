@@ -1,0 +1,252 @@
+﻿/* LAYOUT.CSS - PAGE STRUCTURE ONLY */
+
+/* 1. SITE HEADER - STICKY NAVIGATION BAR */
+
+/* Main Header - Sticky with Glassmorphism Effect */
+.site-header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(18px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(199, 177, 105, 0.25);
+}
+
+/* Header Wrapper - Logo and Nav Container */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Logo Styles - Gradient Text */
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Main Navigation List - Horizontal Menu */
+.main-nav ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Navigation Links */
+.main-nav a {
+    color: #0B1A2F;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Navigation Links Hover & Active State */
+.main-nav a:hover,
+.main-nav a.active {
+    color: #D4AF37;
+}
+
+/* 2. HERO SECTION - MAIN BANNER AREA */
+
+/* Hero Section Container */
+.hero {
+    background: #F2F4F8;
+    padding: 6rem 0;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Hero Content Box - White Card */
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(11, 36, 71, 0.14);
+    border: 1px solid rgba(11, 36, 71, 0.08);
+}
+
+/* Hero Description Text */
+.hero-description {
+    color: #5F6B7A;
+}
+
+/* Hero Buttons Container */
+.hero-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+/* Hero Statistics Container */
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+/* Individual Stat Item */
+.hero-stat {
+    text-align: center;
+}
+
+/* Live Clock Widget - Gradient Background */
+.live-clock {
+    margin: 2rem auto 0;
+    max-width: 520px;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    box-shadow: 0 20px 35px rgba(11, 36, 71, 0.2);
+}
+
+/* Hero Badge - Animated Label */
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    font-weight: 700;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/* Bounce Animation for Hero Badge */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 3. FEATURES SECTION - WHY CHOOSE US */
+
+/* Features Section Background */
+.features {
+    padding: 4rem 0;
+    background: #F7F9FB;
+}
+
+/* Features Grid Layout - Flexbox for Cards */
+.features-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Each Feature Card - Fixed Width */
+.features-grid > * {
+    flex: 0 0 calc(25% - 1.125rem);
+    min-width: 240px;
+}
+
+/* 4. COURSES SECTION - PREMIUM COURSES GRID */
+
+/* Courses Section Background */
+.courses {
+    padding: 4rem 0;
+    background: #FFFFFF;
+}
+
+/* Courses Grid - Responsive Grid Layout */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* 5. SCHEDULE SECTION - BATCH TIMETABLE */
+
+/* Schedule Section Background */
+.schedule {
+    padding: 4rem 0;
+    background: #F7F9FB;
+}
+
+/* 6. INSTRUCTORS SECTION - EXPERT TEACHERS */
+
+/* Instructors Section Background */
+.instructors {
+    padding: 4rem 0;
+    background: #FFFFFF;
+}
+
+/* 7. CERTIFICATE SECTION - DOWNLOAD HUB */
+
+/* Certificate Section Background */
+.certificate-section {
+    padding: 4rem 0;
+    background: #EDF1F6;
+}
+
+/* 8. FOOTER - SITE FOOTER */
+
+/* Site Footer Background */
+.site-footer {
+    padding: 3rem 0 2rem;
+    background: #F2F4F8;
+}
+
+/* Footer Content - Flexbox Layout */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+/* Footer Info Section Heading - Gradient Text */
+.footer-info h3 {
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Footer Links List */
+.footer-links ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Footer Link Item Spacing */
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer Link Styles */
+.footer-links a {
+    color: #0B1A2F;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Footer Link Hover Effect */
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #D4AF37;
+}
+
+/* Footer Paragraph Text */
+.site-footer p {
+    margin: 0;
+}

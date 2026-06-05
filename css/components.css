@@ -1,0 +1,749 @@
+﻿/* COMPONENTS.CSS - CARDS, BUTTONS, MODALS, FORMS, CERTIFICATE, ID CARD, SCHEDULE TABLE */
+
+/* 1. BUTTONS - All Button Variants */
+
+/* Primary Button - Gradient Background with Gold */
+.btn-primary {
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(11, 36, 71, 0.14);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Primary Button Hover - Lift Effect */
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 35px rgba(11, 36, 71, 0.18);
+}
+
+/* Outline Button - Transparent with Gold Border */
+.btn-outline {
+    background: transparent;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+    transition: all 0.3s ease;
+}
+
+/* Outline Button Hover - Subtle Gold Background */
+.btn-outline:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #D4AF37;
+}
+
+/* Navigation Button - For Header Links */
+.btn-nav {
+    border: 2px solid #D4AF37;
+    background: rgba(212, 175, 55, 0.08);
+    color: #D4AF37;
+    padding: 0.6rem 1.5rem;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation Button Hover */
+.btn-nav:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: #D4AF37;
+}
+
+/* Glow Button Effect - Pseudo-element for shine animation */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.18);
+    opacity: 0;
+    transition: opacity 0.3s;
+    border-radius: 1rem;
+}
+
+.btn-glow:hover::before {
+    opacity: 1;
+}
+
+/* 2. FEATURE CARDS - Why Choose Us Section */
+
+/* Feature Card - White Background with Shadow */
+.feature-card {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(11, 36, 71, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(11, 36, 71, 0.08);
+    text-align: center;
+}
+
+/* Feature Card Hover - Lift with Gold Border */
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(11, 36, 71, 0.12);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* Feature Icon - Large Emoji/Icon */
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* 3. COURSE CARDS - Premium Courses Grid */
+
+/* Course Card - Gradient Background with Shadow */
+.course-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F9FB 100%);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 8px 30px rgba(11, 36, 71, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 1px solid rgba(11, 36, 71, 0.08);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Course Card Hover - Lift Effect */
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(11, 36, 71, 0.12);
+}
+
+/* Featured Course Card - Gold Border and Special Background */
+.course-card.featured {
+    border: 2px solid rgba(212, 175, 55, 0.8);
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(212, 175, 55, 0.12) 100%);
+}
+
+/* Course Badge - Top Right Corner Label (Best, New, Advance) */
+.course-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #D4AF37;
+    color: #0B1A2F;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+/* Course Price - Gradient Text */
+.course-price .new-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Course Enroll Button */
+.btn-course {
+    display: block;
+    width: 100%;
+    background: #D4AF37;
+    color: #0B1A2F;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.95rem 1rem;
+    font-weight: 700;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Course Button Hover - Dark Background */
+.btn-course:hover {
+    background: #0B2447;
+    color: #FFFFFF;
+}
+
+/* Gradient Badge - For Trending Label */
+.gradient-badge {
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 4. INSTRUCTOR CARDS - Meet Our Experts */
+
+/* Instructor Grid Layout */
+.instructors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Individual Instructor Card */
+.instructor-card {
+    background: #FFFFFF;
+    color: #0B1A2F;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 30px rgba(11, 36, 71, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(11, 36, 71, 0.08);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 320px;
+}
+
+/* Instructor Card Hover */
+.instructor-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(11, 36, 71, 0.12);
+    border-color: rgba(212, 175, 55, 0.5);
+}
+
+/* Instructor Avatar/Photo */
+.instructor-avatar {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Instructor Name */
+.instructor-card h3 {
+    margin: 1rem 0 0.25rem;
+    font-size: 1.3rem;
+}
+
+/* Instructor Title - Job Role */
+.instructor-title {
+    color: #0B2447;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Instructor Description */
+.instructor-card p {
+    color: #5F6B7A;
+    margin-top: auto;
+}
+
+/* 5. MODAL STYLES - Popup Windows */
+
+/* Modal Overlay - Dark Background */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Modal Active State - Visible */
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Box */
+.modal-content {
+    width: min(580px, calc(100% - 2rem));
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(11, 36, 71, 0.16);
+    transform: translateY(30px);
+    transition: transform 0.25s ease;
+}
+
+/* Modal Content Animation on Active */
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+/* Modal Header - Dark Background */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+    background: #0B2447;
+    color: #FFFFFF;
+}
+
+.modal-header h2 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+/* Modal Close Button */
+.modal-close {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.modal-close:hover {
+    opacity: 0.8;
+}
+
+/* Modal Body Content Area */
+.modal-body {
+    padding: 1.75rem;
+}
+
+/* 6. FORM STYLES - Enrollment Form */
+
+/* Form Group - Each Field Container */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Form Label */
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #0B1A2F;
+}
+
+/* Form Inputs and Selects */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.95rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(11, 36, 71, 0.12);
+    background: #FFFFFF;
+    color: #0B1A2F;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Input Focus State - Gold Border with Glow */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.16);
+}
+
+/* Input Hover State */
+.form-group input:hover,
+.form-group select:hover {
+    border-color: #D4AF37;
+}
+
+/* Submit Enrollment Button */
+.submit-enroll {
+    width: 100%;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.95rem;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-enroll:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11, 36, 71, 0.2);
+}
+
+/* 7. CERTIFICATE & DOWNLOAD HUB */
+
+/* Certificate Panel Container */
+.certificate-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: #FFFFFF;
+    box-shadow: 0 20px 35px rgba(11, 36, 71, 0.12);
+    border: 1px solid rgba(11, 36, 71, 0.08);
+}
+
+/* Certificate Panel Buttons Container */
+.certificate-panel-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Certificate Hub Note Text */
+.certificate-hub-note {
+    color: #0B1A2F;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* Certificate Actions - Download Buttons */
+.certificate-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* 8. CERTIFICATE STYLES - Dummy Certificate */
+
+/* Certificate Modal Content Width */
+.certificate-preview.modal-content {
+    max-width: 650px;
+    width: 100%;
+}
+
+/* Certificate Full Container */
+.certificate-full {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* Certificate Gold Border */
+.certificate-border-full {
+    border: 8px solid #D4AF37;
+    border-radius: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff 0%, #fef9e6 100%);
+}
+
+/* Certificate Inner Content */
+.certificate-inner-full {
+    text-align: center;
+    position: relative;
+}
+
+/* Certificate Logo */
+.certificate-logo-full {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
+}
+
+/* Certificate Title */
+.certificate-title-full {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0B2447;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    border-top: 2px solid #D4AF37;
+    border-bottom: 2px solid #D4AF37;
+    display: inline-block;
+    padding: 6px 12px;
+}
+
+/* Certificate Subtitle */
+.certificate-subtitle {
+    font-size: 0.85rem;
+    color: #5F6B7A;
+    margin: 8px 0;
+}
+
+/* Student Name on Certificate */
+.certificate-student-name-full {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #D4AF37;
+    margin: 12px 0;
+    letter-spacing: 1px;
+}
+
+/* Course Name on Certificate */
+.certificate-course-name-full {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0B2447;
+    margin: 10px 0;
+}
+
+/* Certificate Description */
+.certificate-description {
+    font-size: 0.8rem;
+    color: #5F6B7A;
+    margin: 12px 0;
+    line-height: 1.4;
+}
+
+/* Certificate Date and ID Row */
+.certificate-date-full {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    padding: 8px 0;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.7rem;
+    color: #5F6B7A;
+}
+
+/* Certificate Signatures */
+.certificate-signature-full {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.signature-left,
+.signature-right {
+    width: 45%;
+}
+
+.signature-left div,
+.signature-right div {
+    margin: 3px 0;
+    font-size: 0.7rem;
+}
+
+/* Certificate Seal Stamp */
+.certificate-seal {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+/* 9. ID CARD STYLES - Dummy & Real ID Card */
+
+/* ID Card Full Container */
+.id-card-full {
+    background: linear-gradient(135deg, #0B2447, #1C3556);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* ID Card Inner Content */
+.id-card-inner {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ID Card Header - Logo and Badge */
+.id-card-header-full {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
+}
+
+.id-card-logo-full {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #D4AF37;
+}
+
+.id-card-badge {
+    background: #D4AF37;
+    color: #0B2447;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* ID Card Photo/Icon - Circle Background */
+.id-card-photo-full {
+    background: rgba(255, 255, 255, 0.2);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+}
+
+/* html2canvas to render Font Awesome icons */
+i.fa-solid, i.fa-regular, i.fa-brands {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+}
+
+/* Student Name on ID Card */
+.id-card-name-full {
+    font-size: 1.2rem;
+    color: #D4AF37;
+    margin: 10px 0;
+}
+
+/* Course Name on ID Card */
+.id-card-course-full {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+}
+
+/* ID Card Details Section */
+.id-card-details-full {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+/* Detail Row - Label and Value */
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+    font-size: 0.8rem;
+}
+
+.detail-label {
+    color: #D4AF37;
+}
+
+.detail-value {
+    color: white;
+    font-weight: 500;
+}
+
+/* Active Status Color */
+.status-active-full {
+    color: #10b981;
+}
+
+/* ID Card Footer - Signature and QR */
+.id-card-footer-full {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.signature-line {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+.qr-placeholder {
+    font-size: 1.3rem;
+}
+
+/* 10. PREVIEW NOTICE - For Dummy Items */
+
+.preview-notice {
+    text-align: center;
+    padding: 12px;
+    margin-top: 15px;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #D4AF37;
+}
+
+.preview-notice p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #D4AF37;
+}
+
+/* 11. SCHEDULE TABLE STYLES */
+
+/* Schedule Section Background */
+.schedule {
+    padding: 4rem 0;
+    background: #F7F9FB;
+}
+
+/* Table Responsive Wrapper - Horizontal Scroll on Mobile */
+.table-responsive {
+    overflow-x: auto;
+    background: #F7F9FB;
+    border: 1px solid rgba(11, 36, 71, 0.12);
+    border-radius: 1rem;
+}
+
+/* Schedule Table */
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #F7F9FB;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+/* Table Header - Gradient Background */
+.schedule-table th {
+    background: linear-gradient(135deg, #0B2447, #1C3556);
+    color: #FFFFFF;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+/* Table Cells */
+.schedule-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(11, 36, 71, 0.08);
+    color: #0B1A2F;
+}
+
+/* Table Row Hover Effect */
+.schedule-table tr:hover {
+    background: rgba(11, 36, 71, 0.04);
+}
+
+/* Status Colors */
+.status-open {
+    color: #10B981;
+    font-weight: 700;
+}
+
+.status-limited {
+    color: #F59E0B;
+    font-weight: 700;
+}
+
+.status-closed {
+    color: #EF4444;
+    font-weight: 700;
+}
+
+/* 12. CERTIFICATE NOTE - For Real ID Card */
+
+.certificate-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #D4AF37;
+}

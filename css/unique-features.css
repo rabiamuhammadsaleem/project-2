@@ -1,0 +1,581 @@
+﻿/* UNIQUE-FEATURES.CSS - LOADER, TOGGLES, ANIMATION, AND UTILITY INTERACTIONS */
+
+/* 1. LOADER ANIMATION - PAGE LOADING SCREEN */
+
+/* Fullscreen loader overlay with gradient background */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.5s;
+}
+
+/* Hidden loader state */
+.loader.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Spinner animation */
+.loader-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #FFFFFF;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Spin animation keyframes */
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 2. DARK MODE TOGGLE BUTTON */
+
+/* Fixed position dark mode toggle button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 999;
+    box-shadow: 0 20px 40px rgba(11, 36, 71, 0.2);
+    transition: all 0.3s;
+}
+
+/* 3. BACK TO TOP BUTTON */
+
+/* Fixed position back to top button - hidden by default */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+/* Visible state when scrolling */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* 4. PROGRESS BARS - SCROLL PROGRESS */
+
+/* Progress bar container at top of page */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+}
+
+/* Progress bar fill */
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    transition: width 0.3s;
+}
+
+/* Reading progress bar (alternative) */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: #D4AF37;
+    z-index: 1002;
+    transition: width 0.3s;
+}
+
+/* 5. TYPING ANIMATION - HERO SECTION */
+
+/* Typed text styling */
+.typed-text {
+    display: inline-block;
+    color: #E3C05E;
+}
+
+/* Blinking cursor */
+.cursor {
+    display: inline-block;
+    animation: blink 0.7s infinite;
+}
+
+/* Blink animation keyframes */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* 6. GLASS CARD EFFECTS */
+
+/* Glassmorphism card base */
+.glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glass card hover effect */
+.glass-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* 7. 3D CARD EFFECTS */
+
+/* 3D card transition */
+.card-3d {
+    transition: all 0.3s;
+}
+
+/* 3D hover effect - lifts and rotates */
+.card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover 3D effect - simple lift with scale */
+.hover-3d:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+
+/* 8. TOOLTIP STYLES */
+
+/* Custom tooltip using data-tooltip attribute */
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: #0B1A2F;
+    color: #FFFFFF;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    z-index: 100;
+}
+
+/* Tooltip visible on hover */
+[data-tooltip]:hover:before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* 9. CHATBOT WIDGET */
+
+/* Chatbot fixed position container */
+.chatbot-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 90px;
+    z-index: 997;
+    font-size: 0.95rem;
+}
+
+/* Chatbot toggle button - floating animation */
+.chatbot-toggle {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(11, 36, 71, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation for chatbot */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Chatbot box - hidden by default */
+.chatbot-box {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    width: 320px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 20px 40px rgba(11, 36, 71, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s;
+    border: 1px solid rgba(11, 36, 71, 0.12);
+}
+
+/* Chatbot box visible when open class added */
+.chatbot-widget.open .chatbot-box {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Chatbot header */
+.chatbot-header {
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    padding: 1rem;
+    border-radius: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Chatbot messages container */
+.chatbot-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: grid;
+    gap: 0.75rem;
+}
+
+/* Individual message bubble */
+.chatbot-message {
+    padding: 0.85rem 1rem;
+    border-radius: 1rem;
+    max-width: 85%;
+    word-wrap: break-word;
+}
+
+/* Bot message styling */
+.chatbot-message.bot {
+    background: #E8F0FE;
+    color: #0B1A2F;
+    border-radius: 15px 15px 15px 5px;
+}
+
+/* User message styling */
+.chatbot-message.user {
+    background: linear-gradient(135deg, #0B2447, #D4AF37);
+    color: #FFFFFF;
+    margin-left: auto;
+    border-radius: 15px 15px 5px 15px;
+}
+
+/* Chatbot input area */
+.chatbot-input {
+    display: flex;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-top: 1px solid rgba(11, 36, 71, 0.08);
+}
+
+/* Chatbot input field */
+.chatbot-input input {
+    flex: 1;
+    border-radius: 999px;
+    border: 1px solid rgba(11, 36, 71, 0.12);
+    padding: 0.75rem 1rem;
+}
+
+/* Chatbot send button */
+.chatbot-input button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #0B2447;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Quick suggestion buttons */
+.chatbot-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 8px;
+}
+
+.chatbot-suggestions button {
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid #D4AF37;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    color: #D4AF37;
+    transition: all 0.3s;
+}
+
+.chatbot-suggestions button:hover {
+    background: #D4AF37;
+    color: #0B2447;
+}
+
+/* 10. CUSTOM CURSOR */
+
+/* Outer custom cursor ring */
+.custom-cursor {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #D4AF37;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s, width 0.2s, height 0.2s;
+    transform: translate(-50%, -50%);
+}
+
+/* Inner custom cursor dot */
+.custom-cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #D4AF37;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.05s;
+    transform: translate(-50%, -50%);
+}
+
+
+/* 11. DARK MODE STYLES */
+
+
+/* Dark mode body */
+body.dark-mode {
+    background: #081B34;
+    color: #EDF1F6;
+}
+
+/* Dark mode header */
+body.dark-mode .site-header {
+    background: rgba(11, 36, 71, 0.95);
+    backdrop-filter: blur(18px);
+    border-bottom-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Dark mode navigation */
+body.dark-mode .main-nav a {
+    color: #EDF1F6;
+}
+
+body.dark-mode .main-nav a:hover {
+    color: #E3C05E;
+}
+
+/* Dark mode hero section */
+body.dark-mode .hero {
+    background: #0F203A;
+}
+
+body.dark-mode .hero-content {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+body.dark-mode .hero-description {
+    color: #A9B0BA;
+}
+
+/* Dark mode cards */
+body.dark-mode .feature-card,
+body.dark-mode .course-card,
+body.dark-mode .instructor-card {
+    background: #0F203A;
+    color: #EDF1F6;
+    border-color: rgba(212, 175, 55, 0.16);
+}
+
+/* Dark mode section backgrounds */
+body.dark-mode .features,
+body.dark-mode .schedule,
+body.dark-mode .instructors {
+    background: #081B34;
+}
+
+body.dark-mode .courses,
+body.dark-mode .certificate-section,
+body.dark-mode .site-footer {
+    background: #0F203A;
+}
+
+/* Dark mode schedule table */
+body.dark-mode .schedule-table {
+    background: #0F203A;
+}
+
+body.dark-mode .schedule-table th {
+    background: #1A2A4A;
+    color: #EDF1F6;
+}
+
+body.dark-mode .schedule-table td {
+    color: #EDF1F6;
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark mode certificate panel */
+body.dark-mode .certificate-panel {
+    background: #0F203A;
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+body.dark-mode .certificate-hub-note {
+    color: #EDF1F6;
+}
+
+/* Dark mode outline buttons */
+body.dark-mode .certificate-panel-actions .btn-outline {
+    background: transparent;
+    border: 2px solid #D4AF37;
+    color: #D4AF37;
+}
+
+body.dark-mode .certificate-panel-actions .btn-outline:hover {
+    background: rgba(212, 175, 55, 0.15);
+    color: #E3C05E;
+}
+
+/* Dark mode modal */
+body.dark-mode .modal-content {
+    background: #0F203A;
+    color: #EDF1F6;
+}
+
+body.dark-mode .modal-header {
+    background: #1A2A4A;
+}
+
+/* Dark mode form elements */
+body.dark-mode .form-group label {
+    color: #EDF1F6;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select {
+    background: #1A2A4A;
+    border-color: #2A3A5A;
+    color: #FFFFFF;
+}
+
+body.dark-mode .form-group input:focus,
+body.dark-mode .form-group select:focus {
+    border-color: #D4AF37;
+}
+
+/* Dark mode chatbot */
+body.dark-mode .chatbot-box {
+    background: #0F203A;
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+body.dark-mode .chatbot-message.bot {
+    background: #1A2A4A;
+    color: #EDF1F6;
+}
+
+body.dark-mode .chatbot-input input {
+    background: #1A2A4A;
+    border-color: #2A3A5A;
+    color: #FFFFFF;
+}
+
+/* Dark mode certificate */
+body.dark-mode .certificate-full {
+    background: #0F203A;
+}
+
+body.dark-mode .certificate-border-full {
+    background: linear-gradient(135deg, #1A2A4A 0%, #0F203A 100%);
+    border-color: #D4AF37;
+}
+
+body.dark-mode .certificate-title-full {
+    color: #D4AF37;
+}
+
+body.dark-mode .certificate-student-name-full {
+    color: #E3C05E;
+}
+
+/* Dark mode footer */
+body.dark-mode .footer-info h3 {
+    color: #D4AF37;
+}
+
+body.dark-mode .footer-info p {
+    color: #FFFFFF;
+}
+
+body.dark-mode .footer-links h4 {
+    color: #D4AF37;
+}
+
+body.dark-mode .footer-links a {
+    color: #EDF1F6;
+}
+
+body.dark-mode .footer-contact h4 {
+    color: #D4AF37;
+}
+
+body.dark-mode .footer-contact p {
+    color: #FFFFFF;
+}
+
+/* Dark mode table responsive */
+body.dark-mode .table-responsive {
+    background: #0F203A;
+}

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- META TAGS - DOCUMENT INFORMATION -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="EduFuture Academy - Top rated learning platform with AI chatbot, enrollment system, and certificate generation.">
+    <meta name="author" content="DecodeLabs Intern - Top Performer">
+    <meta name="keywords" content="academy, courses, learning, responsive, enrollment, certificate">
+    <title>EduFuture Academy | Top Performer Edition</title>
+
+    <!-- EXTERNAL LIBRARIES -->
+
+    <!-- Font Awesome 6 (Free CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SweetAlert2 - Beautiful popup alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- html2canvas - Convert HTML to PNG for ID card download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- CSS FILES - COMPONENT-BASED ARCHITECTURE -->
+
+    <!-- Base Styles - Reset, typography, variables -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- Layout Styles - Page structure, header, footer, sections -->
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- Component Styles - Cards, buttons, modals, forms, certificate, ID card -->
+    <link rel="stylesheet" href="css/components.css">
+    <!-- Responsive Styles - Media queries for all screen sizes -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Unique Features - Loader, dark mode, chatbot, animations, cursor -->
+    <link rel="stylesheet" href="css/unique-features.css">
+</head>
+
+<body>
+    <!-- 1. LOADING ANIMATION -->
+
+    <!-- Fullscreen loader that appears when page loads, disappears after 1.5 seconds -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+        <p>Loading Academy...</p>
+    </div>
+
+    <!-- 2. DARK MODE TOGGLE BUTTON -->
+
+    <!-- Fixed position button to switch between light and dark themes -->
+    <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Dark mode">🌙</button>
+
+    <!-- 3. PROGRESS BARS -->
+
+    <!-- Shows scroll progress at the top of the page -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <!-- 4. HEADER / NAVIGATION SECTION -->
+
+    <!-- Sticky header with logo, hamburger menu (mobile), and navigation links -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <!-- Logo with gradient text -->
+                <div class="logo"><a href="#">🎓 EduFuture</a></div>
+                <!-- Hamburger menu button - visible only on mobile/tablet -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <!-- Main navigation menu -->
+                <nav class="main-nav" id="mainNav">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#schedule">Schedule</a></li>
+                        <li><a href="#instructors">Instructors</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home" class="btn-nav">Get Started</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 5. MAIN CONTENT AREA -->
+
+    <main id="main-content">
+
+        <!-- 5a. HERO SECTION - Main banner with typing animation, stats, and live clock -->
+
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <!-- Typing animation heading - cycles through words -->
+                    <h1 class="hero-title">Master <span class="typed-text" id="typedText"></span><span class="cursor"
+                            id="cursor">|</span></h1>
+                    <p class="hero-description">Join 50,000+ students learning cutting-edge skills from industry
+                        experts. Get job-ready with our project-based curriculum.</p>
+                    <br>
+                    <!-- Call to action buttons -->
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary btn-glow" id="openEnrollBtn">Start Free Trial →</a>
+                        <a href="#courses" class="btn btn-outline">View Courses</a>
+                    </div>
+                    <!-- Animated statistics counters -->
+                    <div class="hero-stats" id="statsSection">
+                        <div class="hero-stat"><span class="stat-number" data-target="50000">0</span><span
+                                class="stat-label">+ Students</span></div>
+                        <div class="hero-stat"><span class="stat-number" data-target="100">0</span><span
+                                class="stat-label">+ Instructors</span></div>
+                        <div class="hero-stat"><span class="stat-number" data-target="50">0</span><span
+                                class="stat-label">+ Courses</span></div>
+                    </div>
+                    <!-- Live clock with dynamic greeting (Good Morning/Afternoon/Evening/Night) -->
+                    <div class="live-clock" id="liveClock" aria-live="polite">
+                        <div class="greeting" id="greeting">Good Morning!</div>
+                        <div class="current-time" id="currentTime">--:--:--</div>
+                        <div class="current-date" id="currentDate">--</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5b. FEATURES SECTION - Why Choose EduFuture (4 key features) -->
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title gradient-text">Why Choose EduFuture?</h2>
+                <div class="features-grid">
+                    <!-- Feature 1: Industry-Relevant Curriculum -->
+                    <div class="feature-card glass-card" data-tooltip="Industry recognized curriculum">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Industry-Relevant</h3>
+                        <p>Curriculum designed with input from top tech companies.</p>
+                    </div>
+                    <!-- Feature 2: Expert Mentors -->
+                    <div class="feature-card glass-card" data-tooltip="Learn from best in industry">
+                        <div class="feature-icon">👨‍🏫</div>
+                        <h3>Expert Mentors</h3>
+                        <p>Learn from professionals with real-world experience.</p>
+                    </div>
+                    <!-- Feature 3: Certification -->
+                    <div class="feature-card glass-card" data-tooltip="Globally recognized">
+                        <div class="feature-icon">📜</div>
+                        <h3>Certification</h3>
+                        <p>Earn recognized certificates upon completion.</p>
+                    </div>
+                    <!-- Feature 4: Career Support -->
+                    <div class="feature-card glass-card" data-tooltip="100% placement assistance">
+                        <div class="feature-icon">💼</div>
+                        <h3>Career Support</h3>
+                        <p>Resume reviews, mock interviews, and job placement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5c. SCHEDULE TABLE SECTION - Upcoming batch schedule with status colors -->
+
+        <section class="schedule" id="schedule">
+            <div class="container">
+                <h2 class="section-title">📅 Upcoming Batch Schedule</h2>
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Start Date</th>
+                                <th>Duration</th>
+                                <th>Timing</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Status: Open (Green) -->
+                            <tr>
+                                <td>Full Stack Web Dev</td>
+                                <td>June 15, 2026</td>
+                                <td>6 Months</td>
+                                <td>7-9 PM</td>
+                                <td class="status-open">Open</td>
+                            </tr>
+                            <!-- Status: Open (Green) -->
+                            <tr>
+                                <td>Data Science & AI</td>
+                                <td>June 20, 2026</td>
+                                <td>8 Months</td>
+                                <td>8-10 PM</td>
+                                <td class="status-open">Open</td>
+                            </tr>
+                            <!-- Status: Limited (Orange) -->
+                            <tr>
+                                <td>UI/UX Design</td>
+                                <td>July 1, 2026</td>
+                                <td>4 Months</td>
+                                <td>6-8 PM</td>
+                                <td class="status-limited">Limited</td>
+                            </tr>
+                            <!-- Status: Closed (Red) -->
+                            <tr>
+                                <td>Cloud Computing (AWS)</td>
+                                <td>July 10, 2026</td>
+                                <td>5 Months</td>
+                                <td>7-9 PM</td>
+                                <td class="status-closed">Closed</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5d. COURSES GRID SECTION - 4 premium courses with cards -->
+
+        <section class="courses" id="courses">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title gradient-text">🔥 Most Popular Courses</h2>
+                </div>
+                <div class="courses-grid">
+                    <!-- Course 1: Full Stack Web Development -->
+                    <div class="course-card card-3d">
+                        <div class="course-badge">Best</div>
+                        <div class="course-icon">💻</div>
+                        <h3>Full Stack Web Development</h3>
+                        <p>Master HTML, CSS, JavaScript, React, Node.js & MongoDB</p>
+                        <div class="course-meta">⏱️ 40 hours | 📹 120 lectures</div>
+                        <div class="course-rating">⭐⭐⭐⭐⭐ <span>(2,345 reviews)</span></div>
+                        <div class="course-price"><span class="new-price">Rs: 4,999</span></div><a href="#"
+                            class="btn-course enroll-btn" data-course="Full Stack Web Development">Enroll Now →</a>
+                    </div>
+                    <!-- Course 2: Data Science & AI (Featured/Trending) -->
+                    <div class="course-card card-3d featured">
+                        <div class="course-badge gradient-badge">🔥 Trending</div>
+                        <div class="course-icon">🤖</div>
+                        <h3>Data Science & AI</h3>
+                        <p>Python, Pandas, Machine Learning, Deep Learning, NLP, SQL, Data Warehousing</p>
+                        <div class="course-meta">⏱️ 50 hours | 📹 150 lectures</div>
+                        <div class="course-rating">⭐⭐⭐⭐⭐ <span>(1,892 reviews)</span></div>
+                        <div class="course-price"><span class="new-price">Rs: 6,499</span></div><a href="#"
+                            class="btn-course enroll-btn" data-course="Data Science & AI">Enroll Now →</a>
+                    </div>
+                    <!-- Course 3: UI/UX Design -->
+                    <div class="course-card card-3d">
+                        <div class="course-badge">New</div>
+                        <div class="course-icon">🎨</div>
+                        <h3>UI/UX Design</h3>
+                        <p>Figma, Adobe XD, User Research, Prototyping, Portfolio, Typography, Color Theory</p>
+                        <div class="course-meta">⏱️ 30 hours | 📹 90 lectures</div>
+                        <div class="course-rating">⭐⭐⭐⭐½ <span>(1,234 reviews)</span></div>
+                        <div class="course-price"><span class="new-price">Rs: 3,999</span></div><a href="#"
+                            class="btn-course enroll-btn" data-course="UI/UX Design">Enroll Now →</a>
+                    </div>
+                    <!-- Course 4: Cloud Computing (AWS) -->
+                    <div class="course-card card-3d">
+                        <div class="course-badge">Advance</div>
+                        <div class="course-icon">☁️</div>
+                        <h3>Cloud Computing (AWS)</h3>
+                        <p>EC2, S3, Lambda, CloudFormation, DevOps basics</p>
+                        <div class="course-meta">⏱️ 35 hours | 📹 100 lectures</div>
+                        <div class="course-rating">⭐⭐⭐⭐½ <span>(876 reviews)</span></div>
+                        <div class="course-price"><span class="new-price">Rs: 4,499</span></div><a href="#"
+                            class="btn-course enroll-btn" data-course="Cloud Computing (AWS)">Enroll Now →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5e. CERTIFICATE & DOWNLOAD HUB SECTION -->
+
+        <section class="certificate-section">
+            <div class="container">
+                <div class="certificate-panel">
+                    <h2 class="section-title">🎓 Certificate & Download Hub</h2>
+                    <div class="certificate-panel-actions">
+                        <!-- Button to view dummy certificate -->
+                        <button class="btn btn-outline" id="openCertPreviewBtn">🎓 View Dummy Certificate</button>
+                        <!-- Button to view dummy ID card -->
+                        <button class="btn btn-outline" id="openIdCardBtn">🪪 View Dummy ID Card</button>
+                    </div>
+                    <p class="certificate-hub-note">👁️ <strong>Preview Only:</strong> Dummy certificate and ID card are
+                        for viewing only. <strong>Enroll from course cards</strong> to get your downloadable ID Card!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5f. INSTRUCTORS SECTION - Meet our expert teachers -->
+
+        <section class="instructors" id="instructors">
+            <div class="container">
+                <h2 class="section-title gradient-text">🌟 Meet Our Expert Instructors</h2>
+                <div class="instructors-grid">
+                    <!-- Instructor 1: Saniya Ali - AI Engineer -->
+                    <div class="instructor-card hover-3d">
+                        <div class="instructor-avatar">👩‍💻</div>
+                        <h3>Saniya Ali</h3>
+                        <p class="instructor-title gradient-text">Lead AI Engineer @ Google</p>
+                        <p>10+ years in Machine Learning, ex-Stanford researcher</p>
+                    </div>
+                    <!-- Instructor 2: Ahmed Khan - Full Stack Developer -->
+                    <div class="instructor-card hover-3d">
+                        <div class="instructor-avatar">👨‍💻</div>
+                        <h3>Ahmed Khan</h3>
+                        <p class="instructor-title gradient-text">Senior Full Stack Dev @ Amazon</p>
+                        <p>Full Stack expert, loves teaching JavaScript & React</p>
+                    </div>
+                    <!-- Instructor 3: Nazia Abbas - UI/UX Designer -->
+                    <div class="instructor-card hover-3d">
+                        <div class="instructor-avatar">👩‍💻</div>
+                        <h3>Nazia Abbas</h3>
+                        <p class="instructor-title gradient-text">Lead Designer @ Microsoft</p>
+                        <p>UI/UX specialist, design system expert</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. ENROLLMENT MODAL - Popup form for course enrollment -->
+
+    <div class="modal" id="enrollModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📝 Course Enrollment</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="enrollForm">
+                    <div class="form-group">
+                        <label>👤 Full Name</label>
+                        <input type="text" id="studentName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📧 Email Address</label>
+                        <input type="email" id="studentEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📞 Phone Number</label>
+                        <input type="tel" id="studentPhone" placeholder="Enter 10-digit mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>📚 Select Course</label>
+                        <select id="selectedCourse">
+                            <option value="Full Stack Web Development">Full Stack Web Development - ₹4,999</option>
+                            <option value="Data Science & AI">Data Science & AI - ₹6,499</option>
+                            <option value="UI/UX Design">UI/UX Design - ₹3,999</option>
+                            <option value="Cloud Computing (AWS)">Cloud Computing (AWS) - ₹4,499</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-enroll">✅ Enroll Now →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. DUMMY CERTIFICATE MODAL - Preview only -->
+
+    <div class="modal" id="certificateModal">
+        <div class="modal-content certificate-preview">
+            <div class="modal-header">
+                <h2>🎓 Dummy Certificate (Preview Only)</h2>
+                <button class="modal-close" id="closeCertModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="certificate-full" id="dummyCertificate">
+                    <div class="certificate-border-full">
+                        <div class="certificate-inner-full">
+                            <div class="certificate-logo-full">🎓 EduFuture Academy</div>
+                            <div class="certificate-title-full">CERTIFICATE OF COMPLETION</div>
+                            <div class="certificate-subtitle">This certifies that</div>
+                            <div class="certificate-student-name-full" id="dummyStudentName">Your Name</div>
+                            <div class="certificate-subtitle">has successfully completed the course</div>
+                            <div class="certificate-course-name-full" id="dummyCourseName">Your Course</div>
+                            <div class="certificate-description">with demonstrated excellence in all assessments and
+                                projects.</div>
+                            <div class="certificate-date-full">
+                                <span>📅 Date: <span id="dummyCertDate">June 2025</span></span>
+                                <span>🆔 ID: <span id="dummyCertId">EF-CERT-DEMO-001</span></span>
+                            </div>
+                            <div class="certificate-signature-full">
+                                <div class="signature-left">
+                                    <div>_________________</div>
+                                    <div>Dr. Priya Sharma</div>
+                                    <div>Director</div>
+                                </div>
+                                <div class="signature-right">
+                                    <div>_________________</div>
+                                    <div>Prof. Rajesh Kumar</div>
+                                    <div>Academic Head</div>
+                                </div>
+                            </div>
+                            <div class="certificate-seal">🎓</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-notice">
+                    <p>🔒 <strong>Preview Only:</strong> Dummy certificate for preview. Enroll to get official
+                        certificate.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. DUMMY ID CARD MODAL -->
+
+    <div class="modal" id="idCardModal">
+        <div class="modal-content id-card">
+            <div class="modal-header">
+                <h2>🪪 Dummy ID Card (Preview Only)</h2>
+                <button class="modal-close" id="closeIdCardModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="id-card-full" id="dummyIdCard">
+                    <div class="id-card-inner">
+                        <div class="id-card-header-full">
+                            <div class="id-card-logo-full">🎓 EduFuture Academy</div>
+                            <div class="id-card-badge">Demo ID</div>
+                        </div>
+                        <div class="id-card-photo-full">
+                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 9L12 4L22 9L12 14L2 9Z" fill="#D4AF37" stroke="#0B2447"
+                                    stroke-width="0.8" />
+                                <path d="M6 11V16L12 19L18 16V11" fill="#D4AF37" stroke="#0B2447" stroke-width="0.8" />
+                                <path d="M19 9.5V13.5" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+                                <circle cx="19" cy="14.5" r="1.5" fill="#D4AF37" />
+                                <polygon
+                                    points="12,6 12.5,7.5 14,7.5 12.8,8.5 13.2,10 12,9 10.8,10 11.2,8.5 10,7.5 11.5,7.5"
+                                    fill="#0B2447" />
+                            </svg>
+                        </div>
+                        <h3 class="id-card-name-full" id="dummyIdCardName">Your Name</h3>
+                        <p class="id-card-course-full" id="dummyIdCardCourse">Your Course</p>
+                        <div class="id-card-details-full">
+                            <div class="detail-row"><span class="detail-label">Student ID:</span><span
+                                    class="detail-value" id="dummyIdCardNumber">EF-DEMO-001</span></div>
+                            <div class="detail-row"><span class="detail-label">Valid Till:</span><span
+                                    class="detail-value" id="dummyIdCardValid">Dec 2025</span></div>
+                            <div class="detail-row"><span class="detail-label">Status:</span><span
+                                    class="detail-value status-active-full">Demo</span></div>
+                        </div>
+                        <div class="id-card-footer-full">
+                            <div class="signature-line">Authorized Signature</div>
+                            <div class="qr-placeholder">🎓</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-notice">
+                    <p>🔒 <strong>Preview Only:</strong> This is a dummy ID card for preview purposes. <strong>Enroll
+                            from course cards</strong> to get your personalized downloadable ID Card!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. REAL ID CARD MODAL - Personalized after enrollment  -->
+
+    <div class="modal" id="realIdCardModal">
+        <div class="modal-content id-card">
+            <div class="modal-header">
+                <h2>🪪 Your Personalized ID Card</h2>
+                <button class="modal-close" id="closeRealIdCardModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="id-card-full" id="realIdCard">
+                    <div class="id-card-inner">
+                        <div class="id-card-header-full">
+                            <div class="id-card-logo-full">🎓 EduFuture Academy</div>
+                            <div class="id-card-badge">Student ID</div>
+                        </div>
+                        <div class="id-card-photo-full">
+                            <svg width="45" height="45" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 9L12 4L22 9L12 14L2 9Z" fill="#D4AF37" stroke="#0B2447"
+                                    stroke-width="0.8" />
+                                <path d="M6 11V16L12 19L18 16V11" fill="#D4AF37" stroke="#0B2447" stroke-width="0.8" />
+                                <path d="M19 9.5V13.5" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+                                <circle cx="19" cy="14.5" r="1.5" fill="#D4AF37" />
+                                <polygon
+                                    points="12,6 12.5,7.5 14,7.5 12.8,8.5 13.2,10 12,9 10.8,10 11.2,8.5 10,7.5 11.5,7.5"
+                                    fill="#0B2447" />
+                            </svg>
+                        </div>
+                        <h3 class="id-card-name-full" id="realIdCardName">Loading...</h3>
+                        <p class="id-card-course-full" id="realIdCardCourse">Loading...</p>
+                        <div class="id-card-details-full">
+                            <div class="detail-row"><span class="detail-label">Student ID:</span><span
+                                    class="detail-value" id="realIdCardNumber">EF------</span></div>
+                            <div class="detail-row"><span class="detail-label">Valid Till:</span><span
+                                    class="detail-value" id="realIdCardValid">------</span></div>
+                            <div class="detail-row"><span class="detail-label">Status:</span><span
+                                    class="detail-value status-active-full">Active</span></div>
+                        </div>
+                        <div class="id-card-footer-full">
+                            <div class="signature-line">Authorized Signature</div>
+                            <div class="qr-placeholder">🎓</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-actions">
+                    <button class="btn btn-primary" id="downloadRealIdCard">📥 Download My ID Card (PNG)</button>
+                </div>
+                <p class="certificate-note">✅ This is your <strong>personalized ID Card</strong> with your real name and
+                    course! Click download to save it.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. CHATBOT WIDGET - AI assistant for user queries -->
+
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-toggle" id="chatbotToggle">🤖</div>
+        <div class="chatbot-box">
+            <div class="chatbot-header">🎓 EduFuture Assistant</div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chatbot-message bot">Hi! 👋 I'm EduFuture Assistant. Need help with courses, enrollment, or
+                    certificates?</div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your question...">
+                <button id="chatbotSend">📤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. CUSTOM CURSOR - Animated cursor effect (desktop only) -->
+
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- 12. FOOTER SECTION - Quick links, contact info, and social links -->
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>🎓 EduFuture Academy</h3>
+                    <p>Empowering learners worldwide with quality education and career-ready skills.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">About Us</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact" id="contact">
+                    <h4>Contact Us</h4>
+                    <p>📧 hello@edufuture.com</p>
+                    <p>📞 +91 89330 06408</p>
+                    <p>📍 Bahadurabad, Karachi</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 13. JAVASCRIPT FILES -->
+     
+    <!-- main.js - Hamburger menu functionality -->
+    <script src="js/main.js"></script>
+    <!-- unique-features.js - Dark mode, chatbot, enrollment, modals, download, animations -->
+    <script src="js/unique-features.js"></script>
+</body>
+
+</html>
